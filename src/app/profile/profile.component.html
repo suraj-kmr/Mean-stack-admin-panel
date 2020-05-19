@@ -1,0 +1,103 @@
+<div class="main-panel">
+  <!-- Navbar -->
+  <app-topbar></app-topbar>
+  <!-- End Navbar -->
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Edit Profile</h4>
+              <p class="card-category">Complete your profile</p>
+            </div>
+            <div class="card-body">
+              <form [formGroup]="profileForm" (ngSubmit)="updateProfile()">
+                <div class="row">
+                  <div class="col-md-6">
+                    
+                    <div class="form-group {{this.profileForm.controls['first_name'].value == '' ? '' : 'is-filled' }}">                      
+                      <label class="bmd-label-floating">First Name</label>
+                      <input type="text" formControlName="first_name" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group {{this.profileForm.controls['last_name'].value == '' ? '' : 'is-filled' }}">
+                      <label class="bmd-label-floating">Last Name</label>
+                      <input type="text" formControlName="last_name" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group {{this.profileForm.controls['email'].value == '' ? '' : 'is-filled' }}">
+                      <label class="bmd-label-floating">Email</label>
+                      <input type="email" formControlName="email" class="form-control" readonly>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group {{this.profileForm.controls['phone'].value == '' ? '' : 'is-filled' }}">
+                      <label class="bmd-label-floating">Phone no.</label>
+                      <input type="text" formControlName="phone" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Address</label>
+                      <div class="form-group">
+                        <textarea class="form-control" formControlName="address" rows="5"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-profile">
+            <div class="card-avatar">
+              <a href="javascript:;">
+                <img class="img" src="{{ image_Url }}" style="height: 130px;"/>
+              </a>
+            </div>
+            <div class="upload-btn-wrapper">
+              <form >
+                <button class="btn btn-primary">Upload a file</button>
+                <input type="file" name="profile_pic" (change)="onChange($event)"/>
+              </form>
+            </div>
+            <div class="card-body">
+              
+              <form [formGroup]="passwordForm" (ngSubmit)="changePassword()">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="bmd-label-floating" style="left: 0">New Password</label>
+                      <input type="password" formControlName="new_password" class="form-control" required />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="bmd-label-floating" style="left: 0">Confirm Password</label>
+                      <input type="password" formControlName="confirm_password" class="form-control" required />
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-round">Update</button>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

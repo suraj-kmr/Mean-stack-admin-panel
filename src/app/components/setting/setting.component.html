@@ -1,0 +1,69 @@
+<div class="main-panel">
+  <!-- Navbar -->
+  <app-topbar></app-topbar>
+  <!-- End Navbar -->
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Edit Profile</h4>
+              <p class="card-category">Complete your profile</p>
+            </div>
+            <div class="card-body">
+              <form [formGroup]="settingForm" (ngSubmit)="updateSetting()">
+				  <!-- <span **ngIf="messageType === 1">{{message}}</span> -->
+				<!-- <div class="alert alert-success alert-dismissible">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					{{message}}
+				</div>
+                <div *ngIf="messageType === 1" class="alert alert-success">
+					{{message}}
+					<a href="#" class="close-alert" data-dismiss="alert" aria-label="close">&times;</a>
+                </div>
+                <div *ngIf="messageType === 2" class="alert alert-danger">
+					{{message}}
+					<a href="#" class="close-alert" data-dismiss="alert" aria-label="close">&times;</a>
+                </div> -->
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Privacy Policy</label>
+                      <div class="form-group">
+                        <ckeditor data="{{privacy_policy}}" (change)="onChangePrivacyPolicy($event)"></ckeditor>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Terms and Conditions</label>
+                      <div class="form-group">
+                        <ckeditor data="{{terms_and_condition}}" (change)="onChangeTermCondition($event)"></ckeditor>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>About us</label>
+                      <div class="form-group">
+                        <ckeditor data="{{about_us}}" (change)="onChangeAboutUs($event)"></ckeditor>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
